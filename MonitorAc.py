@@ -12,7 +12,7 @@ class MonitorAc:
 
             while True:
                 for process in self.active_processes.values:
-                    if 'BE' in process.name or 'be' in process.name:
+                    if 'BE' in process.name:
                         Logger.write_in_disk(f'Process(pid={process.pid}, name={process.name})')
 
         except KeyboardInterrupt:
