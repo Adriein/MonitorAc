@@ -1,4 +1,5 @@
 from ProcessPackage import ActiveProcesses
+from TablePackage import Table
 
 
 class MonitorAc:
@@ -6,8 +7,12 @@ class MonitorAc:
         self.active_processes = ActiveProcesses.read()
 
     def start(self) -> None:
+        data = [['PID', 'Name']]
+
         for process in self.active_processes.values:
-            print(str(process))
+            data.append([process.pid, process.name])
+
+        Table.create(data).print()
 
 
 MonitorAc().start()
