@@ -9,6 +9,6 @@ class Logger:
 
         print(log_filename)
 
-        # with open(log_filename, 'w') as file:
-          #  time_stamp = datetime.now().astimezone().strftime("%d %B %Y, %H:%M:%S")
-           # file.write(f'[{time_stamp}] {log} \n')
+        with open(log_filename, 'w') as file:
+            time_stamp = datetime.now().astimezone().strftime("%d %B %Y, %H:%M:%S")
+            file.write(f'[{time_stamp}] {log} \n')
