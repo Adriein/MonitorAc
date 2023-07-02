@@ -19,9 +19,7 @@ class ActiveProcesses:
                     with open(f"{ActiveProcesses.__LINUX_VIRTUAL_FILESYSTEM}/{pid}/comm", "r") as cmdline_file:
                         cmdline = cmdline_file.read().replace(ActiveProcesses.__NULL_BYTES, ' ').strip()
 
-                        if 'BE' in cmdline:
-                            process_list.append(Process(pid, cmdline))
-
+                        process_list.append(Process(pid, cmdline))
                 except IOError:
                     continue
 
