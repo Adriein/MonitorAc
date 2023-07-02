@@ -13,7 +13,7 @@ class MonitorAc:
             while True:
                 for process in self.active_processes.values:
                     if 'BE' in process.name:
-                        Logger.write_in_disk(f'Process(pid={process.pid}, name={process.name})')
+                        Logger.write_in_disk(str(process))
 
         except KeyboardInterrupt:
             print('Graceful shutdown')
