@@ -16,7 +16,7 @@ class ActiveProcesses:
         for pid in os.listdir(ActiveProcesses.__LINUX_VIRTUAL_FILESYSTEM):
             if pid.isdigit():
                 try:
-                    with open(f"{ActiveProcesses.__LINUX_VIRTUAL_FILESYSTEM}/{pid}/comm", "r") as cmdline_file:
+                    with open(f"{ActiveProcesses.__LINUX_VIRTUAL_FILESYSTEM}/{pid}/cmdline", "r") as cmdline_file:
                         cmdline = cmdline_file.read().replace(ActiveProcesses.__NULL_BYTES, ' ').strip()
 
                         process_list.append(Process(pid, cmdline))
