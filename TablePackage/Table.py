@@ -8,7 +8,7 @@ class Table:
     def create(data: any) -> 'Table':
         # Determine the maximum width for each column
         column_widths = [max(len(str(row[i])) for row in data) for i in range(len(data[0]))]
-
+        print(column_widths)
         return Table(data, column_widths)
 
     def print(self) -> None:
