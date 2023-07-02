@@ -10,9 +10,10 @@ class MonitorAc:
         data = [['PID', 'Name']]
 
         for process in self.active_processes.values:
-            data.append([process.pid, process.name])
+            # data.append([process.pid, process.name])
+            print(f'{str(process)} \n')
 
-        Table.create(data).print()
+        # Table.create(data).print()
 
 
 MonitorAc().start()
