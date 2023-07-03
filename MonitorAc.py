@@ -9,6 +9,7 @@ class MonitorAc:
     def watch(self) -> None:
         try:
             print('Start monitoring battle eye activity')
+            Logger.write_in_disk('Start monitoring battle eye activity')
 
             while True:
                 for process in self.active_processes.values:
@@ -18,10 +19,12 @@ class MonitorAc:
         except KeyboardInterrupt:
             print('Graceful shutdown')
             Logger.write_in_disk('Graceful shutdown')
+
             raise SystemExit
         except Exception as error:
             print(str(error))
             Logger.write_in_disk(str(error))
+
             raise SystemExit from error
 
 
