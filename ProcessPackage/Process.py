@@ -38,8 +38,6 @@ class Process:
 
                     parent_process_id = int(stat_fields[ppid_position])
 
-                    print(f'Process watched pid {stat_fields[0]} parent pid {parent_process_id}')
-
                     if parent_process_id == int(self.pid):
                         print(stat_fields)
                         child_processes.append(Process(str(child_pid), ''))
