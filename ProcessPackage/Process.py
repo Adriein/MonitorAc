@@ -27,7 +27,6 @@ class Process:
                     parent_process_id = int(stat_fields[4])
 
                     if parent_process_id == self.pid:
-                        print(stat_fields)
                         child_processes.append(Process(str(child_pid), ''))
 
         except FileNotFoundError:
