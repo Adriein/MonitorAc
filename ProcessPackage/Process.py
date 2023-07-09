@@ -23,9 +23,13 @@ class Process:
                         stat_data = f.read()
 
                     stat_fields = stat_data.split()
-                    print(stat_fields[4])
-                    print(stat_fields)
-                    parent_process_id = int(stat_fields[4])
+
+                    ppid_position = 3
+
+                    if isinstance(stat_fields[1], tuple):
+                        ppid_position = len(stat_fields[1]) + ppid_position - 1
+
+                    parent_process_id = int(stat_fields[ppid_position])
 
                     if parent_process_id == self.pid:
                         child_processes.append(Process(str(child_pid), ''))
