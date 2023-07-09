@@ -38,11 +38,13 @@ class Process:
 
                     parent_process_id = int(stat_fields[ppid_position])
 
-                    print(f'process watched {parent_process_id}')
+                    print(f'Process watched pid {stat_fields[0]} parent pid {parent_process_id}')
 
-                    if parent_process_id == self.pid:
+                    if parent_process_id == int(self.pid):
                         print(stat_fields)
                         child_processes.append(Process(str(child_pid), ''))
+
+                raise Exception
 
         except FileNotFoundError:
             pass
