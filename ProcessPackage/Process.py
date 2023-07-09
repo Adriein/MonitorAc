@@ -34,5 +34,6 @@ class Process:
 
         except Exception as exception:
             print(exception)
+            raise Exception
 
         return child_processes
