@@ -39,7 +39,7 @@ class Process:
                     parent_process_id = int(stat_fields[ppid_position])
 
                     print(f'Process watched pid {stat_fields[0]} parent pid {parent_process_id}')
-                    print(parent_process_id == int(self.pid))
+                    print(f'{parent_process_id} {int(self.pid)}')
 
                     if parent_process_id == int(self.pid):
                         print(stat_fields)
