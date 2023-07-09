@@ -29,6 +29,7 @@ class Process:
                     if isinstance(stat_fields[1], tuple):
                         ppid_position = len(stat_fields[1]) + ppid_position - 1
 
+                    print(stat_fields)
                     parent_process_id = int(stat_fields[ppid_position])
 
                     if parent_process_id == self.pid:
