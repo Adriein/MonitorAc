@@ -44,7 +44,7 @@ class Process:
                         print(stat_fields)
                         child_processes.append(Process(str(child_pid), ''))
 
-                raise Exception
+            raise Exception
 
         except FileNotFoundError:
             pass
