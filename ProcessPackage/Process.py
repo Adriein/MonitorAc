@@ -15,7 +15,6 @@ class Process:
         try:
             for entry in os.scandir('/proc'):
                 if entry.is_dir() and entry.name.isdigit():
-                    print(entry)
                     child_pid = int(entry.name)
                     stat_file = os.path.join(entry.path, 'stat')
 
@@ -23,6 +22,7 @@ class Process:
                         stat_data = f.read()
 
                     stat_fields = stat_data.split()
+                    print(stat_fields)
                     parent_process_id = int(stat_fields[3])
 
                     if parent_process_id == self.pid:
