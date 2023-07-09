@@ -32,4 +32,7 @@ class Process:
         except FileNotFoundError:
             pass
 
+        except Exception as exception:
+            print(exception)
+
         return child_processes
