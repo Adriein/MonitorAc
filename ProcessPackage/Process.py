@@ -1,8 +1,11 @@
 import os
+import re
 import traceback
 
 
 class Process:
+    __PROCESS_STATE_REGEX = r'\b[A-Z]\b'
+
     def __init__(self, pid: str, name: str):
         self.pid = pid
         self.name = name
@@ -24,11 +27,13 @@ class Process:
 
                     stat_fields = stat_data.split()
 
-                    ppid_position = 3
-                    print(stat_fields)
+                    ppid_position = None
 
-                    if isinstance(stat_fields[1], list):
-                        ppid_position = len(stat_fields[1]) + ppid_position - 1
+                    for index, field in enumerate(stat_fields):
+                        match = re.search(self.__PROCESS_STATE_REGEX, field)
+
+                        if bool(match):
+                            ppid_position = index + 1
 
                     parent_process_id = int(stat_fields[ppid_position])
 
