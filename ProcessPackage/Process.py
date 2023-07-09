@@ -17,6 +17,7 @@ class Process:
         child_processes = []
 
         try:
+            print(f'TIBIA PROCESS ID {self.pid}')
             for entry in os.scandir('/proc'):
                 if entry.is_dir() and entry.name.isdigit():
                     child_pid = int(entry.name)
@@ -36,6 +37,8 @@ class Process:
                             ppid_position = index + 1
 
                     parent_process_id = int(stat_fields[ppid_position])
+
+                    print(f'process watched {parent_process_id}')
 
                     if parent_process_id == self.pid:
                         print(stat_fields)
