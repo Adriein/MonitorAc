@@ -27,6 +27,7 @@ class Process:
                     ppid_position = 3
 
                     if isinstance(stat_fields[1], tuple):
+                        print(len(stat_fields[1]))
                         ppid_position = len(stat_fields[1]) + ppid_position - 1
 
                     print(stat_fields)
