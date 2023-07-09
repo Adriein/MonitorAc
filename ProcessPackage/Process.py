@@ -25,12 +25,11 @@ class Process:
                     stat_fields = stat_data.split()
 
                     ppid_position = 3
-                    print(stat_fields)
+                    print(stat_data)
 
                     if isinstance(stat_fields[1], list):
                         ppid_position = len(stat_fields[1]) + ppid_position - 1
 
-                    print(stat_fields)
                     parent_process_id = int(stat_fields[ppid_position])
 
                     if parent_process_id == self.pid:
