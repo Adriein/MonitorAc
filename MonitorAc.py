@@ -12,6 +12,10 @@ class MonitorAc:
             Logger.write_in_disk('Start monitoring battle eye activity')
 
             while True:
+                tibia_process = self.active_processes.get_tibia_process()
+
+                tibia_process.get_child_processes()
+
                 for process in self.active_processes.values:
                     if 'BE' in process.name:
                         Logger.write_in_disk(str(process))

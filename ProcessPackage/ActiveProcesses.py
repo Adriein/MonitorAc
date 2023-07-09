@@ -1,10 +1,13 @@
 import os
+from typing import Union
 from .Process import Process
+from .ProcessNotFound import ProcessNotFound
 
 
 class ActiveProcesses:
     __LINUX_VIRTUAL_FILESYSTEM = '/proc'
     __NULL_BYTES = '\x00'
+    __TIBIA_PROCESS = 'Tibia'
 
     def __init__(self, values: list[Process]):
         self.values = values
@@ -24,3 +27,10 @@ class ActiveProcesses:
                     continue
 
         return ActiveProcesses(process_list)
+
+    def get_tibia_process(self) -> Union[Process, ProcessNotFound]:
+        for process in self.values:
+            if self.__TIBIA_PROCESS in process.name:
+                return process
+
+        raise ProcessNotFound(self.__TIBIA_PROCESS)
