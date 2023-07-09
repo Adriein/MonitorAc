@@ -1,4 +1,5 @@
 import os
+import traceback
 
 
 class Process:
@@ -33,7 +34,7 @@ class Process:
             pass
 
         except Exception as exception:
-            print(exception)
+            traceback.print_exc()
             raise Exception
 
         return child_processes
