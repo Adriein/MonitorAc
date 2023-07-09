@@ -23,7 +23,7 @@ class Process:
 
                     stat_fields = stat_data.split()
                     print(stat_fields)
-                    parent_process_id = int(stat_fields[3])
+                    parent_process_id = int(stat_fields[4])
 
                     if parent_process_id == self.pid:
                         print(stat_fields)
