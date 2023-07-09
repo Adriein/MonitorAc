@@ -25,9 +25,9 @@ class Process:
                     stat_fields = stat_data.split()
 
                     ppid_position = 3
+                    print(stat_fields[1])
 
-                    if isinstance(stat_fields[1], tuple):
-                        print(len(stat_fields[1]))
+                    if isinstance(stat_fields[1], list):
                         ppid_position = len(stat_fields[1]) + ppid_position - 1
 
                     print(stat_fields)
